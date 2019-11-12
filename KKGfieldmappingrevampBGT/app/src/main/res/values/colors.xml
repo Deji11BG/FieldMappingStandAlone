@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#3e0f8e</color>
     <color name="colorAccent">#723f93</color>
     <color name="red">#d81b37</color>
+    <color name="hash">#d4d0d0</color>
 
 </resources>
