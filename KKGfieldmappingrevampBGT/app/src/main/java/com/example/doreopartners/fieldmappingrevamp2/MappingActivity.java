@@ -64,7 +64,6 @@ public class MappingActivity extends AppCompatActivity implements LocationListen
     float MIN_LOC_UPDATE_DISTANCE;
     float MAX_WALKING_SPEED;
     float MAX_BIKE_SPEED;
-    ProgressDialog progressDialog;
     int size;
 
     @Override
@@ -108,13 +107,6 @@ public class MappingActivity extends AppCompatActivity implements LocationListen
         criteria.setHorizontalAccuracy(Criteria.ACCURACY_HIGH);
         provider = locationManager.getBestProvider(criteria, false);
 
-        progressDialog = new ProgressDialog(MappingActivity.this);
-        progressDialog.setMax(3); // Progress Dialog Max Value
-        progressDialog.setMessage("Loading..."); // Setting Message
-        progressDialog.setTitle("Wait for GPS to warm up"); // Setting Title
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL); // Progress Dialog Style Horizontal
-        progressDialog.show(); // Display Progress Dialog
-        progressDialog.setCancelable(false);
 
 
 
@@ -436,21 +428,6 @@ public class MappingActivity extends AppCompatActivity implements LocationListen
             return;
         }
 
-        if (size==1){
-            progressDialog.incrementProgressBy(1);
-
-        }
-        if (size==2){
-            progressDialog.incrementProgressBy(1);
-
-        }
-        if (size==3){
-            progressDialog.incrementProgressBy(1);
-
-        }
-        if (progressDialog.getProgress() == progressDialog.getMax()) {
-            progressDialog.dismiss();
-        }
         double dist = pointsDist(lat, lng, lats.get(size - 1), longs.get(size - 1));
 
         if (walkOrBike.equals("W") && dist >= MIN_LOC_UPDATE_DISTANCE && dist/(Double.valueOf(System.currentTimeMillis()/1000) - time.get(size - 1)) <= MAX_WALKING_SPEED) {

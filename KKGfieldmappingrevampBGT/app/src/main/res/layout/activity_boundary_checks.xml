@@ -23,9 +23,18 @@
             android:layout_height="wrap_content"
             android:textColor="#1565c0"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+
+            />
+
     </LinearLayout>
-    <?xml version="1.0" encoding="utf-8"?>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:fontFamily="@font/roboto_italic"
+        android:textSize="30dp"
+        android:text="Steps " />
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -36,6 +45,7 @@
             app:cardBackgroundColor="@color/hash"
             app:cardElevation="4dp"
             app:cardCornerRadius="20dp"
+            android:id="@+id/question1"
             android:layout_margin="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,17 +54,18 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="20dp">
+                    >
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingVertical="5dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:id="@+id/tvQ"
+                        android:id="@+id/histField1"
                         android:layout_marginLeft="12dp"
-                        android:text="Do you know the history of the field?"
+                        android:text="Are you on the farmer's field?"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -67,27 +78,264 @@
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
     <Button
-        android:id="@+id/yes"
+        android:id="@+id/yes1"
+        style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="68dp"
         android:layout_height="35dp"
         android:layout_marginLeft="200dp"
         android:background="#91e6b1"
         android:fontFamily="@font/roboto_bold"
-
         android:text="YES"
+        android:onClick="yes1"
         android:textColor="#1a1818" />
 
     <Button
-        android:id="@+id/no"
+        android:id="@+id/no1"
         android:layout_width="68dp"
         android:layout_height="35dp"
         android:layout_marginLeft="280dp"
         android:background="#e66262"
         android:fontFamily="@font/roboto_bold"
-        android:onClick="map"
-        android:text="No"
+        android:onClick="no1"
+        android:text="NO"
         android:textColor="#1a1818" />
 </RelativeLayout>
+ <RelativeLayout
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content">
+     <LinearLayout
+         xmlns:tools="http://schemas.android.com/tools"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         >
+         <ImageView
+             android:layout_width="30dp"
+             android:layout_height="30dp"
+             android:id="@+id/imageConf1"
+             android:visibility="invisible"
+             android:background="@drawable/ic_check_circle_black_24dp"/>
+         <TextView
+             android:layout_width="330dp"
+             android:layout_height="30dp"
+             android:paddingVertical="3dp"
+             android:fontFamily="@font/roboto_bold"
+             android:id="@+id/confText1"
+             android:layout_marginLeft="5dp"
+             android:visibility="invisible"
+             android:text="On farmer's field"
+             android:textSize="18sp" />
 
+     </LinearLayout>
+ </RelativeLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/hash"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="20dp"
+            android:id="@+id/question2"
+            android:visibility="invisible"
+
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="5dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:id="@+id/histField2"
+                        android:layout_marginLeft="12dp"
+                        android:visibility="invisible"
+
+                        android:text="Would you like to map field now?"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/yes2"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="68dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="200dp"
+            android:background="#91e6b1"
+            android:fontFamily="@font/roboto_bold"
+            android:text="YES"
+            android:onClick="yes2"
+            android:visibility="invisible"
+
+            android:textColor="#1a1818" />
+
+        <Button
+            android:id="@+id/no2"
+            android:layout_width="68dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="280dp"
+            android:background="#e66262"
+            android:fontFamily="@font/roboto_bold"
+            android:onClick="no2"
+            android:text="NO"
+            android:visibility="invisible"
+
+            android:textColor="#1a1818" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        >
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageConf2"
+                android:visibility="invisible"
+                android:background="@drawable/ic_check_circle_black_24dp"/>
+            <TextView
+                android:layout_width="330dp"
+                android:layout_height="30dp"
+                android:paddingVertical="3dp"
+                android:fontFamily="@font/roboto_bold"
+                android:id="@+id/confText2"
+                android:layout_marginLeft="5dp"
+                android:visibility="invisible"
+                android:text="Ready to map field"
+
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/hash"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="20dp"
+            android:id="@+id/question3"
+            android:visibility="invisible"
+
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="5dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:id="@+id/histField3"
+                        android:visibility="invisible"
+
+                        android:layout_marginLeft="12dp"
+                        android:text="Are you at the boundary of the field?"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/yes3"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="68dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="200dp"
+            android:background="#91e6b1"
+            android:fontFamily="@font/roboto_bold"
+            android:text="YES"
+            android:onClick="yes3"
+            android:visibility="invisible"
+
+            android:textColor="#1a1818" />
+
+        <Button
+            android:id="@+id/no3"
+            android:layout_width="68dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="280dp"
+            android:background="#e66262"
+            android:fontFamily="@font/roboto_bold"
+            android:onClick="no3"
+            android:text="NO"
+            android:visibility="invisible"
+
+            android:textColor="#1a1818" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageConf3"
+                android:visibility="invisible"
+                android:background="@drawable/ic_check_circle_black_24dp"/>
+            <TextView
+                android:layout_width="330dp"
+                android:layout_height="30dp"
+                android:paddingVertical="3dp"
+                android:fontFamily="@font/roboto_bold"
+                android:id="@+id/confText3"
+                android:layout_marginLeft="5dp"
+                android:visibility="invisible"
+                android:text="At field boundary"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

@@ -266,7 +266,8 @@ public class Main2Activity extends AppCompatActivity {
 
     public void map_fields(View v) {
         // starting background task to update product
-        Intent fp=new Intent(getApplicationContext(),startmapping.class);
+        //Intent fp=new Intent(getApplicationContext(),startmapping.class);
+        Intent fp=new Intent(getApplicationContext(),boundaryChecks.class);
         startActivity(fp);
     }
 
