@@ -67,7 +67,8 @@
         <activity android:name=".boundaryChecks" />
         <activity android:name=".mappingGPSSetUp" />
         <activity android:name=".mappedFieldInformation" />
-        <activity android:name=".deviceSetup"></activity>
+        <activity android:name=".deviceSetup" />
+        <activity android:name=".fieldBoundaryQuestion"></activity>
     </application>
 
 </manifest>
