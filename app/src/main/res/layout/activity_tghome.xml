@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="5">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/toolbar_linear_layout"
+            android:padding="@dimen/tfm_toolbar_spacing">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_weight="0.01"
+                android:weightSum="3">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/fieldMappingtext"
+                    android:textColor="@color/view_black"
+                    android:textSize="20dp"
+                    android:layout_weight="2.0"
+                    android:layout_margin="10dp"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/blue"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:onClick="syncTGHome"
+                    android:text="SYNC" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHelp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/view_red"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:onClick="help_active_fields"
+                    android:text="@string/help" />
+
+            </LinearLayout>
+
+
+
+            <!--<com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_et_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.TGRecruitment.TextInputLayout"
+                android:hint="@string/search"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_search_black_24dp"
+                app:endIconContentDescription="@string/custom_content_desc">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/et_search"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:padding="@dimen/tfm_text_view_padding"/>
+
+            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/view_looks1"
+                android:drawableEnd="@drawable/ic_search_black_24dp"
+                android:text="@string/search_here"
+                android:padding="@dimen/tfm_text_view_padding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:orientation="horizontal"
+            android:id="@+id/search_linear_layout"
+            android:layout_marginStart="@dimen/tfm_search_view_margin"
+            android:layout_marginEnd="@dimen/tfm_search_view_margin"
+            android:layout_marginTop="@dimen/tfm_search_view_margin"
+            android:layout_marginBottom="@dimen/tfm_search_view_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/back_to_toolbar"
+                android:layout_gravity="center"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/ic_back_button"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/search_edit_text"
+                android:background="@color/colorWhite"
+                android:layout_gravity="center"
+                android:inputType="text"
+                android:focusable="true"
+                android:hint="@string/search_here"
+                android:textColorHint="@color/textColorPrimary"
+                android:padding="@dimen/tfm_text_view_padding"/>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingLeft="7dp"
+            android:textColor="@color/green"
+
+            android:text="Click on sync to download MSB details"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01"
+
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+
+    <!--android:orientation="horizontal">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:textSize="15dp"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:text="Member ID:"-->
+    <!--/>-->
+    <!--</LinearLayout>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="70dp"-->
+
+    <!--        android:orientation="horizontal">-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/textview_asset2"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textSize="10dp"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:textColor="@color/colorPrimary"-->
+    <!--            android:text="@string/fieldsMappedText"-->
+    <!--            android:textStyle="bold" />-->
+
+    <!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+
+    <!--        android:orientation="horizontal">-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/Delete"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+
+    <!--            android:layout_marginLeft="220dp"-->
+    <!--            android:onClick="view_deleted"-->
+
+    <!--            android:text="@string/delFieldsButText"-->
+    <!--            android:textSize="12dp"/>-->
+    <!--    </LinearLayout>-->
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4.67"
+
+        android:id="@+id/recyclerv_view">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.29"
+        android:weightSum="1"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/incomplete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textColor="@color/view_black"
+            android:backgroundTint="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:onClick="incomplete"
+            android:text="Incomplete" />
+        <Button
+            android:id="@+id/complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_centerInParent="true"
+            android:textColor="@color/view_black"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:onClick="complete"
+            android:text="Complete" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tghomestaffid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingLeft="7dp"
+            android:layout_weight="0.5"
+
+
+            android:text="10000111"
+            />
+        <TextView
+            android:id="@+id/last_sync_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingLeft="7dp"
+            android:layout_weight="0.3"
+
+            android:text="12-02-01"
+            />
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:paddingLeft="7dp"
+            android:layout_weight="0.2"
+
+            android:text="V1.1"
+            />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
