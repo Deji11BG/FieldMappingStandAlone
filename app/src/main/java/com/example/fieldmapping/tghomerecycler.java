@@ -170,7 +170,9 @@ public class tghomerecycler extends RecyclerView.Adapter<tghomerecycler.ViewHold
                             .setNeutralButton("Edit Field Size", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-
+                                //luxand verification to edit field_size
+                                    //dialog with text to show input for new field size
+                                    //update field size in the DB based on unique_id
                                 }
                             })
                             .show();
