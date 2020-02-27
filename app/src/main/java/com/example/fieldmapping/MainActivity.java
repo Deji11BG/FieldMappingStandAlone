@@ -42,14 +42,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     ArrayList<Double> longs;
     ArrayList<Double> time;
     ArrayList<Double> latlongs;
-    ArrayList<Double> latme;
-    ArrayList<Double> longsme;
-    Double minlat;
-    Double maxlat;
-    Double minlng;
-    Double maxlng;
-    Double midlats;
-    Double midlng;
     TextView please;
     List<fields> overlapField;
 

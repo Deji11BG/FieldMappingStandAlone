@@ -20,7 +20,6 @@ import android.widget.Toast;
 public class fielddescription extends AppCompatActivity {
     Spinner guideSpinner,keywordSpinner;
     SharedPreferences member;
-    SharedPreferences prefs2;
     SharedPreferences.Editor memEdit;
     String selectedGuide,selectedKeyword;
 
@@ -123,11 +122,8 @@ public class fielddescription extends AppCompatActivity {
         };
         guideAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-
         guideSpinner.setAdapter(guideAdapter);
         guideSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -172,14 +168,10 @@ public class fielddescription extends AppCompatActivity {
     };
         guideAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-
         keywordSpinner.setAdapter(keywordAdapter);
         keywordSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
 
             selectedKeyword=keywordSpinner.getSelectedItem().toString().trim();
 
@@ -192,7 +184,6 @@ public class fielddescription extends AppCompatActivity {
     });
 }
     public void nextDesc(View v) {
-        // starting background task to update product
         memEdit.putString("description",selectedGuide+" "+selectedKeyword);
         memEdit.commit();
         @SuppressLint("StaticFieldLeak") RoomAsynctask.UploadFields x = new RoomAsynctask.UploadFields(fielddescription.this) {
@@ -204,7 +195,7 @@ public class fielddescription extends AppCompatActivity {
         x.execute();
         memEdit.putString("remap_flag","0");
         memEdit.commit();
-        //startActivity(new Intent(fielddescription.this, activefield.class));
+        startActivity(new Intent(fielddescription.this, TGhome.class));
         finish();
     }
 }

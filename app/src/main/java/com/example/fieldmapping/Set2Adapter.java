@@ -21,7 +21,6 @@ public class Set2Adapter extends RecyclerView.Adapter<Set2Adapter.VH> {
     private final OnItemClickListener listener; //this is the listener that is set on view click, declared final because  "                  "                  "
     Context context;
     SharedPreferences prefs2;
-
     static int IS_FILLED0 = 0;
     static int IS_FILLED1 = 0;
     static int IS_FILLED2 = 0;
@@ -47,7 +46,6 @@ public class Set2Adapter extends RecyclerView.Adapter<Set2Adapter.VH> {
     @Override
     public void onBindViewHolder(Set2Adapter.VH holder, final int position) {
         final Set1 trans = this.trans.get(position);   //gets current transaction object from array
-
         holder.tvQNo.setText(trans.getqNo() + "");
         holder.tvQ.setText(trans.getQ());
         holder.tvMem.setText(trans.getMem());
@@ -67,7 +65,6 @@ public class Set2Adapter extends RecyclerView.Adapter<Set2Adapter.VH> {
 
             @Override
             public void afterTextChanged(Editable s) {
-
                 switch (position) {
                     case 0:
                         if (s.length() > 0) {
@@ -96,7 +93,6 @@ public class Set2Adapter extends RecyclerView.Adapter<Set2Adapter.VH> {
                             IS_FILLED2 = 0;
                         }
                         break;
-
                 }
             }
         });
@@ -135,10 +131,6 @@ public class Set2Adapter extends RecyclerView.Adapter<Set2Adapter.VH> {
             tvQ = v.findViewById(R.id.tvQ);
             tvMem = v.findViewById(R.id.tvMem);
             etAmt = v.findViewById(R.id.etAmt);
-
-//            roboto_bold = Typeface.createFromAsset(v.getContext().getAssets(), "font/roboto_bold.ttf");
-  //          roboto_italic = Typeface.createFromAsset(v.getContext().getAssets(), "font/roboto_italic.ttf");
-    //        roboto_regular = Typeface.createFromAsset(v.getContext().getAssets(), "font/roboto_bold.ttf");
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override

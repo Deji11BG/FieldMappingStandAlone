@@ -7,8 +7,6 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class fields {
-//    @PrimaryKey
-//    public int uid;
 
     @PrimaryKey
     @NonNull
@@ -19,14 +17,6 @@ public class fields {
 
     @ColumnInfo(name = "first_name")
     public String first_name;
-
-//    public int getUid() {
-//        return uid;
-//    }
-
-//    public void setUid(int uid) {
-//        this.uid = uid;
-//    }
 
     @ColumnInfo(name = "last_name")
     public String last_name;

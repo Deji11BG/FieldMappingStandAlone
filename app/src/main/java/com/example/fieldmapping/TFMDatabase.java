@@ -33,7 +33,6 @@ public abstract  class TFMDatabase extends RoomDatabase {
                 TFMDatabase.class,
                 TFMDBContractClass.TFM_DATABASE_NAME)
                 .allowMainThreadQueries().build();
-        //.fallbackToDestructiveMigration()
     }
 
     public void cleanUp(){

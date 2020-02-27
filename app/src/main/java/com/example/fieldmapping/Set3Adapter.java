@@ -30,9 +30,6 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
     int oner,twor, threer,fourr;
     int oned,twod,threed,fourd;
 
-    //    Typeface roboto_bold;
-//    Typeface roboto_italic;
-//    Typeface roboto_regular;
     //Constructor initializes all of the above, notice it is the same as the normal constructor except now listener is added
     public Set3Adapter(Context context, ArrayList<Set3> trans, OnItemClickListener listener) {
         this.trans = trans;
@@ -51,11 +48,9 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
     @Override
     public void onBindViewHolder(final Set3Adapter.VH holder, final int position) {
         final Set3 trans = this.trans.get(position);   //gets current transaction object from array
-
         holder.tvQNo.setText(trans.getqNo() + "");
         holder.tvQ.setText(trans.getQ());
         holder.tvMem.setText(trans.getMem());
-
         String[] crops = {"--Select--","Maize", "Rice", "Soybean", "Groundnut", "Cowpea", "Sorghum","other"}; //the space in front is to make the spinner display a blank in default
          ArrayAdapter<String> adapter = new ArrayAdapter<String> (context,android.R.layout.simple_list_item_1,crops)
         {
@@ -92,20 +87,14 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
         holder.spDry.setSelection(trans.getDry());
         holder.spRainy.setSelection(trans.getRainy());
 
-
         holder.spDry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int p, long id) {
                 final String selected = holder.spDry.getSelectedItem().toString();
                 trans.setDry(p);
 
-                //prefs2.edit().putString(("ans" + String.valueOf(position + 1) + "d").toString(), selected.toString()).commit();
-
-
-                if (selected == "other")
-
-
-                { holder.other.addTextChangedListener(new TextWatcher() {
+                if (selected == "other") {
+                    holder.other.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -119,7 +108,6 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
                     @Override
                     public void afterTextChanged(Editable s) {
 
-
                         if (s.length() > 0) {
                             switch (position){
                                 case 0:
@@ -131,33 +119,16 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
                                 case 3:
                                     fourd=1;
                             }
-
-
-                            //IS_FILLED0 = 1;
-                            //trans.setAns(s.toString());
                             prefs2.edit().putString("ans" + String.valueOf(position + 1) + "d", s.toString()).commit();
                             prefs2.getString("ans1d", String.valueOf(s));
                             prefs2.getString("ans2d", String.valueOf(s));
                             prefs2.getString("ans3d", String.valueOf(s));
                             prefs2.getString("ans4d", String.valueOf(s));
-
-
-
                         } else {
-                            //IS_FILLED0 = 0;
                         }
-
                     }
                 });
                     holder.other.setVisibility(View.VISIBLE);
-                    //holder.other2.setVisibility(View.GONE);
-                    //holder.btother.setVisibility(View.VISIBLE);
-//                    prefs.getString("ans1d", selected);
-//                    prefs.getString("ans2d", selected);
-//                    prefs.getString("ans3d", selected);
-//                    prefs.getString("ans4d", selected);
-
-
                 } else {
                     holder.other.setVisibility(View.GONE);
                     switch (position) {
@@ -192,79 +163,8 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
                                 fourd = 1;
                             }
                             break;
-
-
                     }
                     prefs2.edit().putString(("ans" + String.valueOf(position + 1) + "d").toString(), selected.toString()).commit();
-                    //int crops[] = {prefs.getInt("ans1d", 0), prefs.getInt("ans1r", 0), prefs.getInt("ans2d", 0), prefs.getInt("ans2r", 0), prefs.getInt("ans3d", 0), prefs.getInt("ans3r", 0), prefs.getInt("ans4d", 0), prefs.getInt("ans4r", 0)};
-//                    for (int i = 0; i < 8; i++) {
-//                        if ((crops[i] == 2) || (crops[i] == 3) || (crops[i] == 4)) {
-//                            //maize = true;
-//                            break;
-//                        }
-//                    }
-                    //String[] crops = {"Maize", "Rice", "Soybean", "Groundnut", "Cowpea", "Sorghum","other"};
-//                    if (selected == "Maize") {//crops = {prefs.getString("ans1d", 0), prefs.getInt("ans1r", 0), prefs.getInt("ans2d", 0), prefs.getInt("ans2r", 0), prefs.getInt("ans3d", 0), prefs.getInt("ans3r", 0), prefs.get
-//                        prefs2.getString("ans1d", selected);
-////                        prefs.getString("ans2d", selected);
-////                        prefs.getString("ans3d", "selected");
-////                        prefs.getString("ans4d", "selected");
-////                        prefsEdit.commit();
-//                        holder.other.setVisibility(view.GONE);
-//                        //holder.other2.setVisibility(view.GONE);
-//                        //holder.btother.setVisibility(View.GONE);
-//                    }
-//                    if (selected == "Rice") {
-////                        prefs.getString("ans1d", "selected");
-////                        prefs.getString("ans2d", "selected");
-////                        prefs.getString("ans3d", "selected");
-////                        prefs.getString("ans4d", "selected");
-////                        prefsEdit.commit();
-//                        holder.other.setVisibility(view.GONE);
-//                        //holder.other2.setVisibility(view.GONE);
-//                        //holder.btother.setVisibility(View.GONE);
-//                    }
-//                    if (selected == "Soybean") {
-////                        prefs.getString("ans1d", "selected");
-////                        prefs.getString("ans2d", "selected");
-////                        prefs.getString("ans3d", "selected");
-////                        prefs.getString("ans4d", "selected");
-////                        prefsEdit.commit();
-//                        holder.other.setVisibility(view.GONE);
-//                        //holder.other2.setVisibility(view.GONE);
-//                        //holder.btother.setVisibility(View.GONE);
-//                    }
-//                    if (selected == "Groundnut") {
-////                        prefs.getString("ans1d", "selected");
-////                        prefs.getString("ans2d", "selected");
-////                        prefs.getString("ans3d", "selected");
-////                        prefs.getString("ans4d", "selected");
-////                        prefsEdit.commit();
-//                        holder.other.setVisibility(view.GONE);
-//                        //holder.other2.setVisibility(view.GONE);
-//                        //holder.btother.setVisibility(View.GONE);
-//                    }
-//                    if (selected == "Cowpea") {
-////                        prefs.getString("ans1d", "selected");
-////                        prefs.getString("ans2d", "selected");
-////                        prefs.getString("ans3d", "selected");
-////                        prefs.getString("ans4d", "selected");
-////                        prefsEdit.commit();
-//                        holder.other.setVisibility(view.GONE);
-//                        //holder.other2.setVisibility(view.GONE);
-//                        //holder.btother.setVisibility(View.GONE);
-//                    }
-//                    if (selected == "Sorghum") {
-////                        prefs.getString("ans1d", "selected");
-////                        prefs.getString("ans2d", "selected");
-////                        prefs.getString("ans3d", "selected");
-////                        prefs.getString("ans4d", "selected");
-////                        prefsEdit.commit();
-//                        holder.other.setVisibility(view.GONE);
-//                        //holder.other2.setVisibility(view.GONE);
-//                        //holder.btother.setVisibility(View.GONE);
-//                    }
-
                 }
             }
 
@@ -281,13 +181,7 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
 
                 String selected2 = holder.spRainy.getSelectedItem().toString();
                 Log.d("selectedttt",selected2);
-                //prefs2.edit().putString("ans" + (position + 1) + "r", selected2).commit();
-                //String selected22= prefs.getString("ans1d", "other");
-                if (selected2 == "other") {   //prefs.getString("ans1d", selected2);
-//                    prefsEdit.putString("ans2d", selected2);
-//                    prefsEdit.putString("ans3d", selected2);
-//                    prefsEdit.putString("ans4d", selected2);
-//                    prefsEdit.commit();
+                if (selected2 == "other") {
 
                     holder.other2.addTextChangedListener(new TextWatcher() {
                         @Override
@@ -303,7 +197,6 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
                         @Override
                         public void afterTextChanged(Editable s) {
 
-
                             if (s.length() > 0) {
                                 switch (position){
                                     case 0:
@@ -315,27 +208,16 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
                                     case 3:
                                         fourr=1;
 
-
                                 }
-
-
-
-
-
-                                //IS_FILLED0 = 1;
-                                //trans.setAns(s.toString());
                                 prefs2.edit().putString("ans" + (position + 1) + "r", s.toString()).commit();
 
 
                             } else {
-                                //IS_FILLED0 = 0;
                             }
 
                         }
                     });
-                    //holder.other.setVisibility(view.GONE);
                     holder.other2.setVisibility(View.VISIBLE);
-                    //holder.btother2.setVisibility(View.VISIBLE);
                 } else
                 {
                     holder.other2.setVisibility(View.GONE);
@@ -373,7 +255,6 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
                             }
                             break;
 
-
                     }
                     prefs2.edit().putString("ans" + (position + 1) + "r", selected2).commit();
                 }
@@ -385,11 +266,6 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
 
             }
         });
-
-//        holder.tvQNo.setTypeface(roboto_italic);
-//        holder.tvQ.setTypeface(roboto_bold);
-//        holder.tvMem.setTypeface(roboto_italic);
-
     }
 
     @Override
@@ -410,10 +286,6 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
         EditText other2;
         Spinner spDry;
         Spinner spRainy;
-        Button btother;
-        Button btother2;
-
-
 
         public VH(View v) {
             super(v);
@@ -424,28 +296,13 @@ public class Set3Adapter extends RecyclerView.Adapter<Set3Adapter.VH> {
             spRainy = v.findViewById(R.id.spRainy);
             other=v.findViewById(R.id.other);
             other2=v.findViewById(R.id.otherrainy);
-
-
-            //other.setVisibility(View.GONE);
-//
-//            roboto_bold = Typeface.createFromAsset(v.getContext().getAssets(), "font/roboto_bold.ttf");
-//            roboto_italic = Typeface.createFromAsset(v.getContext().getAssets(), "font/roboto_italic.ttf");
-//            roboto_regular = Typeface.createFromAsset(v.getContext().getAssets(), "font/roboto_bold.ttf");
-
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     listener.onClick(trans.get(getLayoutPosition()));
                 }
             });
-//            btother.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent fp=new Intent(context,Set3Adapter.class);
-//                    context.startActivity(fp);
-//
-//                }
-//            });
+
         }
     }
     public boolean entrycheck(){

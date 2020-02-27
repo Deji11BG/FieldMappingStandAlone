@@ -37,7 +37,6 @@ public class MembersTable {
     @ColumnInfo(name = TFMDBContractClass.COL_PHONE_NUMBER)
     private String phone_number;
 
-
     @ColumnInfo(name = TFMDBContractClass.COL_STATE_ID)
     private String state_id;
 
@@ -59,19 +58,15 @@ public class MembersTable {
     @ColumnInfo(name = TFMDBContractClass.COL_STAFF_ID)
     private String staff_id;
 
-
     @ColumnInfo(name = TFMDBContractClass.COL_MEMBER_PROGRAM)
     private String member_program;
 
-//    @ColumnInfo(name = TFMDBContractClass.SYNC_DATE)
-//    private String sync_date;
-
-
-
     @ColumnInfo(name = TFMDBContractClass.COL_LOAN_FIELD_SIZE)
     private String loan_field_size;
+
     @ColumnInfo(name = TFMDBContractClass.TGE_ID)
     private String tge_id;
+
     @ColumnInfo(name = TFMDBContractClass.COL_IMEI)
     private String imei;
 

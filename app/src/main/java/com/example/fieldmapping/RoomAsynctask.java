@@ -36,82 +36,32 @@ public class RoomAsynctask {
 
         NetworkInfo net;
         String field;
-        //Assets uActivity;
         @SuppressLint("StaticFieldLeak")
         Context context;
         ArrayList wordlist;
-
         String date;
         public static final String TAG = "AsyncTask2";
-
         SharedPreferences member;
         SharedPreferences prefs2;
         SharedPreferences.Editor memEdit;
-        String folderPath;
-        String arrayOfFiles[];
-        File root;
-        File allFiles;
-
-        String urlServer = "https://apps.babbangona.com/tgl_test/tgl_sync/field_mapping";
-        //String urlServer = "https://fpf.babbangona.com/field_mapping";
-
-        //String urlServer = "https://915483be.ngrok.io";
-        String lineEnd = "\r\n";
-        String twoHyphens = "--";
-        String boundary = "*****";
-
-        int bytesRead, bytesAvailable, bufferSize;
-        byte[] buffer;
-        int maxBufferSize = 1 * 1024 * 1024;
-
-        URL url;
-
 
         public UploadFields (Context mctx){
             this.context = mctx;
-            //this.getSharedPreferences=get
 
         }
 
-        //ProgressDialog pDialog = new ProgressDialog(context);
-
-
         @Override
         protected void onPreExecute() {
-
-
             Log.d(TAG, "onPreRequest");
-
         }
 
         @Override
         protected String doInBackground(Void... voids) {
-           // DbHelper databaseHelper = new DbHelper(context);
-//            Room.databaseBuilder(context,
-//                    finalDatabase.class, "lmr_db").build();
-//            finalDatabase fd=new finalDatabase.getInstance(context);
-
-            //databaseHelper.open();
-            //JSONArray x = null;
-            //List<fields>x;
-           // x =  finalDatabase.getResults();
                 Log.d("asyncc","here");
-
-//
-//            try{
-
                 wordlist = new ArrayList<>();
                 Room.databaseBuilder(context,
                         finalDatabase.class, "DB").build();
                 finalDatabase fd= finalDatabase.getInstance(context);
-
-                List<fields> fieldsMap;
-                fieldsMap = fd.fieldsdao().getUnsynced();
-                //Log.d("MUFASA",fieldsMap+"");
-                //Map<String, String> map = null;
-                //for(int i = 0; i<fieldsMap.size(); i++){
-
-                   // map = new HashMap<>();
                     ArrayList<HashMap<String, String>> wordList = new ArrayList<>();
                     HashMap<String, String> map = new HashMap<>();
                     member = context.getSharedPreferences("member", MODE_PRIVATE);
@@ -121,64 +71,26 @@ public class RoomAsynctask {
                     String lastname = member.getString("last_name", "Sodipo");
                     String cropType = member.getString("crop_type", "Maize");
                     String ik_number = member.getString("ik_number", "IK000123");
-                    //fieldId = member.getString("croptype", "IK000123-01-01");
-                    //String f = member.getString("field_size", "");
                     String z = member.getString("latlongs", "NULL,NULL");
                     String staff_id = member.getString("staff_id", "IK000123");
-                   // final OnlineDBHelper db = new OnlineDBHelper(MappingForm.this);
                     String member_id = member.getString("member_id", "10001");
                     String middle = member.getString("middle", "deji");
                     String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-
-
-
                     String minlat = member.getString("minlat", "notyet");
                     String maxlat = member.getString("maxlat", "notyet");
                     String minlng = member.getString("minlng", "notyet");
                     String maxlng = member.getString("maxlng", "notyet");
-
                     String TFMuniqueid=member.getString("TFMuniqueid", "notyet");
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
                     Date date = new Date();
                     mydate  = dateFormat.format(date);
                     String ID = staff_id + "-" + mydate + "-" + "F";
-                    String latlong = z;
-                    //String[] x = z.split("_");
-                    //latlong=x[0];
-//        fieldSize = Float.parseFloat(x[0]);
-                    //latlong=
-
-                    //Log.d("HHEELLOO", String.valueOf(f));
-
                     map.put("first_name", firstname);
                     map.put("last_name", lastname);
                     map.put("crop_type", cropType);
                     map.put("ik_number", ik_number);
-                    //map.put("test_Id", fieldId + "01");
                     field = member.getString("fieldsize", "1");
-//String f="0.18";
                     map.put("field_size", String.valueOf(field));
-                    //String[] x = f.split(".");
-//                    String[] x = f.split("\\.");
-//                    String y=x[1];
-//                    String charAtZero =  Character.toString(y.charAt(0));
-//                    String w=x[0]+"."+charAtZero;
-//                    double round=Double.valueOf(w);
-//                    String charAtone = Character.toString(y.charAt(1));
-//                    Integer a=Integer.valueOf(charAtone);
-//                    Log.d("dkdkk",String.valueOf(charAtone));
-//                    Log.d("sjkssds",String.valueOf(a));
-//                    if (a>=7)
-//                    {
-//                        field=round+0.1;
-//                        map.put("field_size", String.valueOf(field));
-//                    }
-//                    else
-//                    {
-//                        field=round+0.0;
-//                        map.put("field_size", String.valueOf(field));
-//                    }
-
                     map.put("staff_id", staff_id);
                     map.put("member_id", member_id);
                     map.put("middle", middle);
@@ -189,7 +101,6 @@ public class RoomAsynctask {
                     map.put("TFMuniqueid",TFMuniqueid);
                     map.put("unique_id", ID);
                     map.put("timestamp", member.getString("timestamp", mydate));
-
                     map.put("q1", prefs2.getString("ans1", "no"));
                     map.put("q2", prefs2.getString("ans2", "no"));
                     map.put("q3", prefs2.getString("ans3", "no"));
@@ -201,23 +112,8 @@ public class RoomAsynctask {
                     map.put("date",member.getString("today",mydate3));
                     map.put("field_status",member.getString("field_status","active"));
                     map.put("upload_status","0");
-
                     map.put("latlongs", z);
-//        if (cropType.equals("Rice")) {
-//            map.put("q6", prefs.getString("ans6", "no"));
-//            map.put("q6", prefs.getString("ans6", "no"));
-//
-//        } else {
-//            if (prefs.getString("ans6", "").equals("yes")) {
-//                map.put("q6", "no");
-//            } else {
-//                map.put("q6", "yes");
-//            }
-//            map.put("10", prefs.getString("ans6", "no"));
-//
-//        }
                     map.put("q6", prefs2.getString("ans6", "no"));
-
                     map.put("q7", prefs2.getString("ans7", "no"));
                     map.put("q8", prefs2.getString("ans8", "no"));
                     map.put("q9", prefs2.getString("ans9", "no"));
@@ -227,9 +123,7 @@ public class RoomAsynctask {
                     map.put("q13", prefs2.getString("ans2a", "0"));
                     map.put("q14", prefs2.getString("ans3a", "0"));
                     map.put("description", prefs2.getString("description", "good"));
-                    //Log.d("sharedprefserror",prefs2.getString("unique_id", "00001"));
                     map.put("village", member.getString("village", "village"));
-
                     map.put("q15ad", prefs2.getString("ans1d", "Maize"));
                     map.put("q15bd", prefs2.getString("ans2d", "Maize"));
                     map.put("q15cd", prefs2.getString("ans3d", "Maize"));
@@ -249,12 +143,7 @@ public class RoomAsynctask {
                         Log.d("maperror",e.toString());
                        // Toast.makeText(this, "Please, go back and answer the questions ", Toast.LENGTH_SHORT).show();
                     }
-
-
                     wordList.add(map);
-                    //DbHelper databaseHelper = new DbHelper(this);
-
-
                     Gson gson = new GsonBuilder().create();
                     Log.d("Deji2", gson.toJson(wordList));
                     JSONArray jsonArray = null;
@@ -263,35 +152,10 @@ public class RoomAsynctask {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    //databaseHelper.saverecords(jsonArray);
-                    //finalDatabase resultDB = Room.databaseBuilder(getApplicationContext(),
-                    //      finalDatabase.class, "fields").build();
-                    //MyApp.database =  Room.databaseBuilder(this, AppDatabase::class.java, "MyDatabase").allowMainThreadQueries().build();
-
                     fd.saverecordsRoom(jsonArray);
                     Log.d("fieldmappresult", gson.toJson(jsonArray));
                     return gson.toJson(wordList);
-
-
         }
-
-
-
-
-//        protected void onPostExecute(String result) {
-//
-//
-//
-//            Log.d(" UploadGpsData", "onPost");
-//
-//
-//            super.onPostExecute(result);
-//
-//
-//            //pDialog.dismiss();
-//
-//
-//        }
     }
     public static class getActiveFields extends AsyncTask<String, Void, List<fields>>{
         Context context;
@@ -668,43 +532,6 @@ public class RoomAsynctask {
     }
 
     @SuppressLint("StaticFieldLeak")
-//    public static class getMemberInfo extends AsyncTask<String, Void, List<MembersTable>>{
-//
-//        Context context;
-//        TFMDatabase tfmDatabase;
-//        SharedPreferences member;
-//        SharedPreferences prefs2;
-//        SharedPreference sharedPreference;
-//        SharedPreferences.Editor memEdit;
-//
-//
-//        public getMemberInfo(Context mCtx) {
-//            this.context = mCtx;
-//        }
-//
-//        @Override
-//        protected List<MembersTable> doInBackground(String... params) {
-//            member = context.getSharedPreferences("member", MODE_PRIVATE);
-//            prefs2 = context.getSharedPreferences("prefs", MODE_PRIVATE);
-//            sharedPreference = new SharedPreference(context);
-//            HashMap<String,String> user = sharedPreference.getUserDetails();
-//            String unique_id_for_field_mapping = user.get(SharedPreference.KEY_UNIQUE_ID_FIELD_MAPPING);
-//
-//            try{
-//                String memberID,fieldstatus;
-//                //String<fields> areasSync = lists[0];
-//               // Room.databaseBuilder(context,
-//                        //TFMDatabase.class, "DB").build();
-//                tfmDatabase = TFMDatabase.getInstance(context);
-//
-//                return tfmDatabase.getMembersTable().loadMemberInfo(unique_id_for_field_mapping);
-//            }catch (Exception e){
-//                e.printStackTrace();
-//            }
-//            return null;
-//        }
-//
-//    }
     public static class getUnsyncedCount extends AsyncTask<String, Void, Integer>{
         Context context;
 

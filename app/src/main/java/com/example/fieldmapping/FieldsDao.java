@@ -56,14 +56,6 @@ public interface FieldsDao {
 //query to get from Dami's table
     //@Query("SELECT member_id,ik_number,first_name,last_name,phone_number,crop_type,state,lga,ward,village,mapping_date,member_role,staff_id FROM fields WHERE unique_id =:uniqueID")
     //List <fields> loadFieldInfo(String uniqueID);
-//    @Query("SELECT first_name,last_name,member_id FROM fields WHERE village =:village AND " +
-//            "ik_number =:IKNumber ")
-//    fields mappedTodayRoom(String village, String IKNumber);
-
-
-//    @Query("SELECT * FROM fields WHERE first_name LIKE :first AND " +
-//            "last_name LIKE :last LIMIT 1")
-//    fields findByName(String first, String last);
 
     @Query("SELECT * FROM fields where upload_status = '0'")
     List<fields> getUnsynced();

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    tools:context=".mappedFieldInformation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="7dp"
+        android:layout_weight="0.1"
+        android:weightSum="3">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:background="@drawable/ic_back_button"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/helpcenter_mapping_card_text"
+            android:textColor="@color/view_black"
+            android:textSize="20dp"
+            android:layout_weight="2.4"
+            android:layout_margin="10dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textColor="@color/view_red"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="@string/help" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4.4"
+        android:orientation="vertical">
+
+        <com.babbangona.tgrecruitment.FieldMapping.DrawView
+            android:id="@+id/surface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="7dp"
+        android:weightSum="3"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="Field Size(ha):"
+            android:textColor="#5c35e7"
+            android:textStyle="italic"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/fieldSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.9"
+            android:textColor="#2f2a41"
+            android:text="god"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="7dp"
+        android:weightSum="3"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unique ID:"
+            android:layout_weight="0.08"
+            android:textStyle="italic"
+            android:textColor="#5c35e7"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/temp_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="02.92"
+            android:textColor="#2f2a41"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3">
+
+        <Button
+            android:id="@+id/take_picture"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_marginRight="7dp"
+            android:layout_alignParentRight="true"
+            android:onClick="finish"
+            android:text="@string/proceed"
+            android:backgroundTint="#050150"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/remap"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:onClick="remap"
+            android:text="@string/remap"
+            android:layout_marginLeft="7dp"
+            android:backgroundTint="#7b9a89"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+
+</LinearLayout>
